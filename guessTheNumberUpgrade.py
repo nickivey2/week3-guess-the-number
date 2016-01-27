@@ -1,4 +1,4 @@
-# replace the contents of this comment with your name
+# Nicholas Ivey 1/27/16
 import random
 
 # -------------------------------------------------------------------
@@ -12,6 +12,7 @@ def generateNumber( topLimit ):
     # Write code in this function that calculates and           #
     # returns a random number between 1 and the user's topLimit #
     #############################################################
+    return random.randrange(topLimit)
     
 # end of generateNumber function -------------------------------------
 
@@ -55,7 +56,15 @@ def evaluateAnswer( userGuess, userSecretNumber ):
     # 3. If the user guess and secret number are the same,      #
     #    return True, no message prints to the screen           #
     #############################################################
-
+    if userGuess < userSecretNumber:
+        print('Your guess was too low')
+        return False
+    if userGuess > userSecretNumber:
+        print('Your guess was too high')
+        return False
+    if userGuess == userSecretNumber:
+        return True  
+    
 # end of evaluateAnswer function -------------------------------------
 
 
@@ -84,6 +93,24 @@ def playGame( showAnswer ):
     #    upper limits, and tell the user how many guesses they  #
     #    have in total                                          #
     #############################################################
+    print('Welcome please enter the largest number you would like to guess.')
+
+    try:
+        maxNum = int(input('Largest Number (Number only):'))       
+    except ValueError:
+        print("Not an number!")
+
+    print('How many guesses would you like?')
+
+    try:
+        totalGuesses = int(input('Guesses (Number only):'))       
+    except ValueError:
+        print("Not an number!")
+
+    theNumber = generateNumber(maxNum)
+
+    print('Guess a number between 1 and '+str(maxNum)+', you have '+str(totalGuesses)+' guesses left.')
+
 
 
     # you don't need to change anything below this comment ##############
