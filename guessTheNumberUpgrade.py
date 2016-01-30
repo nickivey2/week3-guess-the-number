@@ -12,7 +12,7 @@ def generateNumber( topLimit ):
     # Write code in this function that calculates and           #
     # returns a random number between 1 and the user's topLimit #
     #############################################################
-    return random.randrange(1,topLimit)
+    return random.randint(1,topLimit)
     
 # end of generateNumber function -------------------------------------
 
